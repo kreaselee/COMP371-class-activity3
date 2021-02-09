@@ -2,18 +2,31 @@ package com.example.classactivity3;
 
 public class WeatherData {
     // instance variables
+    // private String date;
     private String time;
     private String weatherDescription;
-    private String feelsLike;
+    private String temp;
 
     // constructor
-    public WeatherData(String time, String weatherDescription, String feelsLike) {
+    public WeatherData(String time, String weatherDescription, String temp) {
+        // this.date = date;
         this.time = time;
         this.weatherDescription = weatherDescription;
-        this.feelsLike = feelsLike;
+        this.temp = temp;
     }
 
     // getters and setters
+    /*
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+     */
+
     public String getTime() {
         return time;
     }
@@ -30,11 +43,12 @@ public class WeatherData {
         this.weatherDescription = weatherDescription;
     }
 
-    public String getFeelsLike() {
-        return feelsLike;
+    public String getTemp() {
+        return temp;
     }
 
-    public void setFeelsLike(String feelsLike) {
-        this.feelsLike = feelsLike;
+    public void setTemp(String temp) {
+        this.temp = temp;
     }
+
 }
