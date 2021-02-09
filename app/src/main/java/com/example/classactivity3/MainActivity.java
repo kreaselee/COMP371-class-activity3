@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
@@ -32,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
     // private String city;
     // private String constructed_url;
     private EditText editText_city;
-    private ArrayList<WeatherData> weatherDataList;
+    // private ArrayList<WeatherData> weatherDataList = new ArrayList<>();
+    private ArrayList<String> times = new ArrayList<>();
+    private ArrayList<String> descriptions = new ArrayList<>();
+    private ArrayList<String> temps = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,29 +74,34 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject json = new JSONObject(new String(responseBody));
                     JSONObject city = json.getJSONObject("city");
                     JSONArray list = json.getJSONArray("list");
-                    /*
+
+                    // System.out.println(list.getJSONObject(1));
+
                     for (int i = 0; i < list.length(); i++) {
                         String time = list.getJSONObject(i).getString("dt_txt");
-                        // JSONArray weather = new JSONArray(list.getJSONObject(i).getJSONArray("weather"));
-                        // String description = weather.getJSONObject(i).getString("description");
+                        JSONArray weather = list.getJSONObject(i).getJSONArray("weather");
+                        String description = weather.getJSONObject(0).getString("description");
                         String temp = list.getJSONObject(i).getJSONObject("main").getString("feels_like");
-                        WeatherData weatherData = new WeatherData("time", "description", "temp");
-                        weatherDataList.add(weatherData);
+                        // System.out.println(temp);
+                        WeatherData data = new WeatherData(time, description, temp);
+                        // System.out.println(weatherData.toString());
+                        times.add(time);
+                        descriptions.add(description);
+                        temps.add(temp);
+                        // weatherDataList.add(data);
                     }
 
-                     */
-
-                    // JSONObject main = json.getJSONObject("main");
 
                     Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                     // add weather information into the intent
                     intent.putExtra("city", city.getString("name")+", ");
                     intent.putExtra("country", city.getString("country"));
                     // intent.putExtra("dataList", weatherDataList);
+                    intent.putExtra("times", times);
+                    intent.putExtra("descriptions", descriptions);
+                    intent.putExtra("temps", temps);
 
-                    // convert any json data into a string to put into the intent
-                    // when you receive the intent in the next activity
-                    // convert it back into the json data
+
                     startActivity(intent);
 
                 } catch (JSONException e) {
