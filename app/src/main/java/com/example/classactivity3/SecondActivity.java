@@ -42,7 +42,6 @@ public class SecondActivity extends AppCompatActivity {
             String description = intent.getStringArrayListExtra("descriptions").get(i);
             String temp = intent.getStringArrayListExtra("temps").get(i);
             WeatherData weatherData = new WeatherData(time, description, temp);
-            // System.out.println(weatherData.getTime());
             weatherDataList.add(weatherData);
         }
 

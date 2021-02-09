@@ -16,17 +16,6 @@ public class WeatherData {
     }
 
     // getters and setters
-    /*
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-     */
-
     public String getTime() {
         return time;
     }

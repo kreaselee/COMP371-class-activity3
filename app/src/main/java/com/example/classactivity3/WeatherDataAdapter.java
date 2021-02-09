@@ -39,7 +39,6 @@ public class WeatherDataAdapter extends RecyclerView.Adapter<WeatherDataAdapter.
         // grab data model (aka WeatherData object) based on position
         WeatherData weatherData = weatherDataList.get(position);
         // set the view
-        // holder.textView_date.setText(weatherData.getDate());
         holder.textView_time.setText(weatherData.getTime());
         holder.textView_description.setText(weatherData.getWeatherDescription());
         holder.textView_temp.setText(weatherData.getTemp());
@@ -54,7 +53,6 @@ public class WeatherDataAdapter extends RecyclerView.Adapter<WeatherDataAdapter.
     class ViewHolder extends RecyclerView.ViewHolder{
 
         // views to set
-        // TextView textView_date;
         TextView textView_time;
         TextView textView_description;
         TextView textView_temp;
@@ -63,7 +61,6 @@ public class WeatherDataAdapter extends RecyclerView.Adapter<WeatherDataAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
             // look up each view
-            // textView_date = itemView.findViewById(R.id.textView_date);
             textView_time = itemView.findViewById(R.id.textView_time);
             textView_description = itemView.findViewById(R.id.textView_description);
             textView_temp = itemView.findViewById(R.id.textView_temp);
