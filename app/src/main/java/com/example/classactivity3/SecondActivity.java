@@ -46,7 +46,12 @@ public class SecondActivity extends AppCompatActivity {
             weatherDataList.add(weatherData);
         }
 
-
+        // create adapter to pass in the data
+        WeatherDataAdapter adapter = new WeatherDataAdapter(weatherDataList);
+        // attach the adapter to the recycler view to populate
+        recyclerView.setAdapter(adapter);
+        // layout manager
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }
